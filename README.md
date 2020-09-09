@@ -1,4 +1,4 @@
-Easily create lenses programatically for Lens Studio
+Easily create lenses programatically for Lens Studio using pixel based positioning
 
 ####Creating Images　
 
