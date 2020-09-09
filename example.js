@@ -12,7 +12,7 @@ script.createEvent("TurnOnEvent").bind(function() {
   var image=new suFramework.Image();
   image.setFrame(0,0,200,200)
   image.setTexture(script.texture)
-  image.setOnTap=function (){}
+  image.setOnTap(function(){ print("Tapped!");})
   image.image.stretchMode = StretchMode.Stretch;    
 
 

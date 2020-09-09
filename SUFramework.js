@@ -31,7 +31,9 @@ SUFramework.Image=function () {
   this.touch = this.sceneObj.createComponent("Component.TouchComponent");
   this.touch.addMeshVisual(this.image)
     
-  
+  this.scriptObj=this.sceneObj.createComponent("Component.ScriptComponent")
+  this.scriptObj.touchEndEvent=this.scriptObj.createEvent("TouchEndEvent");
+  this.scriptObj.touchEndEvent.enabled=false;
 }
 SUFramework.Image.prototype.setFrame=function(x,y,w,h) {
   print("set frame ")
@@ -55,7 +57,13 @@ SUFramework.Image.prototype.setTexture=function(texture) {
   this.image.mainMaterial.mainPass.baseTex = texture;
     
 }
-SUFramework.Image.prototype.setOnTap=function(callback) {   
+SUFramework.Image.prototype.setOnTap=function(callback) {  
+    
+  this.scriptObj.touchEndEvent.enabled=true;
+  this.scriptObj.touchEndEvent.bind(function () {
+    callback();
+  }) 
+    
 }
 
 
